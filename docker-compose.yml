@@ -1,0 +1,15 @@
+version: '3'
+services:
+  jenkins:
+    container_name: jenkinsPraticaTeste
+    image: jk_im_servidor:0.1 # Especifique a imagem Docker que deseja usar para o serviço Jenkins
+    build:
+      context: . # O diretório onde se encontra o Dockerfile para a construção da imagem
+      dockerfile: dockerfile # O nome do seu Dockerfile para o Jenkins
+    ports:
+      - "8080:8080" # Mapeamento da porta do host para a porta do contêiner
+    networks:
+      - MinhaConecxao
+
+networks:
+  MinhaConecxao: # Defina uma rede personalizada chamada "jhonatas" se ainda não estiver criada
